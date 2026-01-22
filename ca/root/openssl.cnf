@@ -1,0 +1,16 @@
+[ ca ]
+default_ca = CA_default
+
+[ CA_default ]
+dir               = ca/root
+database          = $dir/index.txt
+serial            = $dir/serial
+certificate       = $dir/certs/root.crt
+private_key       = $dir/private/root.key
+default_md        = sha256
+policy            = policy_loose
+default_days      = 365
+
+[ policy_loose ]
+commonName = supplied
+
