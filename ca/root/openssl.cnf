@@ -1,16 +1,49 @@
 [ ca ]
 default_ca = CA_default
 
+
 [ CA_default ]
+
+# Dossier racine de la CA
 dir               = ca/root
+
+# Base de données
 database          = $dir/index.txt
+new_certs_dir     = $dir/certs
 serial            = $dir/serial
+crlnumber         = $dir/crlnumber
+
+# Certificat et clé de la CA
 certificate       = $dir/certs/root.crt
 private_key       = $dir/private/root.key
+
+# Hash
 default_md        = sha256
+
+# Politique
 policy            = policy_loose
+
+# Durée de validité des certificats
 default_days      = 365
+
+
+# ===== CONFIGURATION CRL (OBLIGATOIRE) =====
+crl_dir           = $dir/crl
+crl               = $crl_dir/crl.pem
+default_crl_days  = 30
+
+
+# Extensions
+x509_extensions   = usr_cert
+
 
 [ policy_loose ]
 commonName = supplied
+
+
+[ usr_cert ]
+basicConstraints = CA:FALSE
+authorityKeyIdentifier = keyid,issuer
+subjectKeyIdentifier = hash
+keyUsage = digitalSignature, keyEncipherment
 

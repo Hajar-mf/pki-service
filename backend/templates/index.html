@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Service PKI</title>
+</head>
+<body>
+
+<h2>Service PKI</h2>
+
+<form method="POST" action="/generate">
+    <input type="text" name="name" placeholder="Nom utilisateur" required>
+    <button type="submit">1️⃣ Générer certificat</button>
+</form>
+
+<br>
+
+<form method="POST" action="/verify">
+    <input type="text" name="name" placeholder="Nom utilisateur" required>
+    <button type="submit">2️⃣ Vérifier certificat</button>
+</form>
+
+<br>
+
+<form method="POST" action="/download">
+    <input type="text" name="name" placeholder="Nom utilisateur" required>
+    <button type="submit">3️⃣ Télécharger certificat</button>
+</form>
+
+<br>
+
+<form method="POST" action="/revoke">
+    <input type="text" name="name" placeholder="Nom utilisateur" required>
+    <button type="submit">4️⃣ Révoquer certificat</button>
+</form>
+
+</body>
+</html>
+
